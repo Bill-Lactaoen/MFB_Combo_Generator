@@ -33,7 +33,7 @@ export default function ComboBuilder() {
     const [secondWheel, setSecondWheel] = useState(null);
 
     const [secondWheelOptions, setSecondWheelOptions] = useState(toOptions(allSecondWheels));
-    const [topWheelOptions] = useState(toOptions(allTopWheelOptions));
+    const [topWheelOptions, setTopWheelOptions] = useState(toOptions(allTopWheelOptions));
 
     const [facebolt, setFacebolt] = useState(null);
     const [track, setTrack] = useState(null);
@@ -157,9 +157,12 @@ export default function ComboBuilder() {
     }, [topWheel]);
 
     useEffect(() => {
-        if (!secondWheel) return;
+        if (!secondWheel) {
+            setTopWheelOptions(toOptions(allTopWheelOptions));
+        }
 
         const validTopOptions = buildCompatibleTopWheels(secondWheel);
+        setTopWheelOptions(validTopOptions);
 
         // If the current top wheel is not valid, clear it
         if (topWheel && !validTopOptions.find(o => o.value === topWheel.value)) {
@@ -177,16 +180,34 @@ export default function ComboBuilder() {
         return toOptions(category);
     };
 
+    const clearAll = () => {
+        setTopWheel(null);
+        setSecondWheel(null);
+        setFacebolt(null);
+        setTrack(null);
+        setTip(null);
+    };
+
     return (
         <div className="p-4">
             <h1 className="text-xl font-bold mb-4">Beyblade Combo Builder</h1>
-            <div className="grid gap-4">
+            {/* Top Wheel */}
+            <div className="flex items-center gap-2">
                 <Dropdown
                     options={topWheelOptions}
                     value={topWheel}
                     onChange={setTopWheel}
                     placeholder="Select Top Wheel"
                 />
+                {topWheel && (
+                    <button onClick={() => setTopWheel(null)} className="text-red-500 text-xl hover:text-red-700" title="Clear Top">
+                        ✖
+                    </button>
+                )}
+            </div>
+
+            {/* Second Wheel */}
+            <div className="flex items-center gap-2">
                 <Dropdown
                     options={secondWheelOptions}
                     value={secondWheel}
@@ -194,29 +215,68 @@ export default function ComboBuilder() {
                     placeholder="Select Second Wheel"
                     isDisabled={secondWheelOptions.length === 0}
                 />
+                {secondWheel && (
+                    <button onClick={() => setSecondWheel(null)} className="text-red-500 text-xl hover:text-red-700" title="Clear Second Wheel">
+                        ✖
+                    </button>
+                )}
+            </div>
+
+            {/* Facebolt */}
+            <div className="flex items-center gap-2">
                 <Dropdown
                     options={getAccessoryOptions(bolts)}
-                    onChange={setFacebolt}
                     value={facebolt}
+                    onChange={setFacebolt}
                     placeholder="Select Facebolt"
                     isDisabled={getAccessoryOptions(bolts).length === 0}
                 />
+                {facebolt && (
+                    <button onClick={() => setFacebolt(null)} className="text-red-500 text-xl hover:text-red-700" title="Clear Facebolt">
+                        ✖
+                    </button>
+                )}
+            </div>
+
+            {/* Track */}
+            <div className="flex items-center gap-2">
                 <Dropdown
                     options={getTrackOptions()}
-                    onChange={setTrack}
                     value={track}
+                    onChange={setTrack}
                     placeholder="Select Track"
                     isDisabled={getTrackOptions().length === 0}
                 />
+                {track && (
+                    <button onClick={() => setTrack(null)} className="text-red-500 text-xl hover:text-red-700" title="Clear Track">
+                        ✖
+                    </button>
+                )}
+            </div>
 
+            {/* Tip */}
+            <div className="flex items-center gap-2">
                 <Dropdown
                     options={getTipOptions()}
-                    onChange={setTip}
                     value={tip}
+                    onChange={setTip}
                     placeholder="Select Tip"
                     isDisabled={getTipOptions().length === 0}
                 />
+                {tip && (
+                    <button onClick={() => setTip(null)} className="text-red-500 text-xl hover:text-red-700" title="Clear Tip">
+                        ✖
+                    </button>
+                )}
             </div>
+
+
+            <button
+                    onClick={clearAll}
+                    className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition w-fit"
+                >
+                    Clear All
+            </button>
         </div>
     );
 }
