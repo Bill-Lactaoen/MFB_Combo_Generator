@@ -1,3 +1,5 @@
 export const weirdParts = [
-    "Proto Nemesis"
+    "Proto Nemesis",
+    "L-Drago Destructor/Destroy",
+    "L-Drago Guardian"
 ];

@@ -41,6 +41,7 @@ export const clearWheels = [
     "Lynx",
     "Lyre",
     "Nemesis",
+    "Nemesis X",
     "Orion",
     "Orso",
     "Pegasis/Pegasus I",
