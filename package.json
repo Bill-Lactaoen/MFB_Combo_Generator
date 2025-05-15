@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://bill-lactaoen/github.io/MFB_Combo_Generator",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -19,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/Bill-Lactaoen/MFB_Combo_Generator/issues"
   },
-  "homepage": "https://bill-lactaoen/github.io/MFB_Combo_Generator",
+
   "dependencies": {
     "@vitejs/plugin-react": "^4.4.1",
     "react": "^19.1.0",
