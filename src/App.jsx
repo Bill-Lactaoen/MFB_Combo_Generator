@@ -1,9 +1,10 @@
 import React from "react";
-import ComboBuilder from "./components/ComboBuilder";
+import ComboBuilder from "./components/ComboBuilder.jsx";
 
 export default function App() {
     return (
-        <div className="App">
+        <div>
+            <h1>Beyblade App</h1>
             <ComboBuilder />
         </div>
     );

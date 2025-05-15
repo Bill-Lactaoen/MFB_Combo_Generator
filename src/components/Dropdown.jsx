@@ -1,4 +1,3 @@
-// src/components/Dropdown.jsx
 import React from "react";
 import Select from "react-select";
 

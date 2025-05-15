@@ -22,7 +22,7 @@ const allTopWheelOptions = [
     ...crystalWheels,
     ...weirdParts,
     ...phWheels
-].map(name => ({ value: name, label: name }));
+];
 
 const allSecondWheels = [...metalWheels, ...chromeWheels, ...crystalWheels];
 
@@ -33,7 +33,7 @@ export default function ComboBuilder() {
     const [secondWheel, setSecondWheel] = useState(null);
 
     const [secondWheelOptions, setSecondWheelOptions] = useState(toOptions(allSecondWheels));
-    const [topWheelOptions] = useState(toOptions(allTopWheels));
+    const [topWheelOptions] = useState(toOptions(allTopWheelOptions));
 
     const [facebolt, setFacebolt] = useState(null);
     const [track, setTrack] = useState(null);
