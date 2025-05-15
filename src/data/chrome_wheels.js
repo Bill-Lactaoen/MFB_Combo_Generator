@@ -1,0 +1,19 @@
+export const chromeWheels = [
+    "Bahamoote/Bahamdia",
+    "Balro",
+    "Behemoth/Begirados",
+    "Dragoon/Dragooon",
+    "Gargoyle/Gargole",
+    "Gebnbu/Genbull",
+    "Golem/Goreim",
+    "Griffin/Gryph",
+    "Ifrit/Ifraid",
+    "Kraken/Killerken",
+    "Leviathan/Revizer",
+    "Orochi/Orojya",
+    "Pegasus/Pegasis",
+    "Phoenix/Phoenic",
+    "Salamander/Saramanda",
+    "Wyvang/Wyvern",
+    "Zirago/Girago"
+];
