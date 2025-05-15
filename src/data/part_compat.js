@@ -9,7 +9,7 @@ export const cwmwCompat = {
     "Nemesis X": ["Proto"]
 };
 
-export const wheelTrackcompat = [];
+export const wheelTrackCompat = [];
 
 
 export const trackTipCompat = [];
