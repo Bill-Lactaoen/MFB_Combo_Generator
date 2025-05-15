@@ -4,6 +4,5 @@ export const bolts = [
     "MF-Heavy",
     "MF-Light",
     "MF-Medium",
-    "MF-Feather",
-    "Dog"
+    "MF-Feather"
 ];
